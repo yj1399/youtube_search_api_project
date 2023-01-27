@@ -1,5 +1,6 @@
 from os import getenv
 
+YOUTUBE_API_KEY = getenv("YOUTUBE_API_KEY")
 MONGO_DATABASE = {
     "HOST" : getenv("DB_HOST") , 
     "PORT" : getenv("DB_PORT") , 
