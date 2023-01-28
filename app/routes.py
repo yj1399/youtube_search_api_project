@@ -13,5 +13,5 @@ def index():
 
 @main.route("/search" , methods=["GET"])
 def get_video_search_params():
-   return ys.get_youtube_video_information()
+   return ys.post_youtube_search()
 

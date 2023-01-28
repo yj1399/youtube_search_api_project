@@ -1,11 +1,6 @@
-
-
-class YoutubeData: 
-    def __init__(self , db) :
-        self.db = db
-
-    def insert_youtube_meta_data(self) : 
-        meta_data  = {
-            "video_title" : "xyz" , 
-        }
-        self.db.video_meta_data.insert_one(meta_data)
+class DatabaseClass:
+    def __init__(self) :
+        self.db_client = client 
+    
+    def _init_youtube_meta_data():
+        return self.db_client.video_meta_data

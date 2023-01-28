@@ -12,7 +12,7 @@ class MonogoDatabase:
         self.mongo_uri = self.host + self.user_name + urllib.parse.quote(self.password) + self.port
         self.client = None
 
-    def _init_client(self) :
+    def _init_db(self) :
         self.client = pymongo.MongoClient(self.mongo_uri) 
         return self.client.youtube_data
-        
+    
