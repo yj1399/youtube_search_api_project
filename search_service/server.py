@@ -1,6 +1,7 @@
 # from flask import Flask 
 from routes import main
 from mongo_client import MonogoDatabase
+from models import DatabaseClass 
 
 
 
@@ -16,7 +17,10 @@ from flask import Flask
 app = Flask(__name__)
 app.register_blueprint(main)
 client = init_mongo_db()
-app.db = client.video_meta_data
+db_obj = DatabaseClass(client)
+app.db = db_obj.get_db_instance()
+db_obj.create_index()
+
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
