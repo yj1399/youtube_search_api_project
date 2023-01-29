@@ -1,7 +1,7 @@
 import pymongo 
 import urllib 
 from flask_pymongo import PyMongo
-from app.settings import MONGO_DATABASE
+from settings import MONGO_DATABASE
 
 class MonogoDatabase:
     def __init__(self) :

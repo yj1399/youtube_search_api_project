@@ -1,7 +1,8 @@
 import requests 
-from app.settings import YOUTUBE_API_KEY
-from app.models import YoutubeData
-from . import *
+from settings import YOUTUBE_API_KEY
+from flask import current_app as app
+
+
 
 def post_youtube_search():
     search_url = 'https://www.googleapis.com/youtube/v3/search'
@@ -14,7 +15,7 @@ def post_youtube_search():
         'order' : 'date' , 
         'type' : 'video' , 
         'publishedAfter' : '2023-01-28T17:43:00.813891Z',
-        'publishedBefore' : '2023-01-28T17:51:11.765597Z'
+        'publishedBefore' : '2023-01-29T17:51:11.765597Z'
     }
 
     r = requests.get(search_url , params=search_params)
@@ -35,10 +36,9 @@ def post_youtube_search():
 
     print(result)
 
-    yt = YoutubeData(db)
+    
 
-    yt.insert_many_record(result)
-
+    app.db.insert_many(result)
 
 
     return r.json()
