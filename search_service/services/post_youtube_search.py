@@ -22,7 +22,7 @@ def post_youtube_search():
 
     result = r.json() 
     items = result["items"]
-    print(items[0])
+
     result_dict = {}
     result = []
     for item in items : 
@@ -34,7 +34,7 @@ def post_youtube_search():
         result_dict.update({'publish_time' :  item['snippet']['publishTime']})
         result.append(result_dict)
 
-    print(result)
+
 
     
 
